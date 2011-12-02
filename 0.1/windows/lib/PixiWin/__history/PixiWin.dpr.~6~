@@ -1,0 +1,17 @@
+program PixiWin;
+
+uses
+  Vcl.Forms,
+  uNotifications in 'uNotifications.pas' {frmNotifications},
+  uMessageHistory in 'uMessageHistory.pas' {frmMessageHistory},
+  uComponents in 'uComponents.pas',
+  uDLLManager in 'uDLLManager.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmNotifications, frmNotifications);
+  Application.Run;
+end.

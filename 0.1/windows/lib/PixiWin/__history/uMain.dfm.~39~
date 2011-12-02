@@ -1,0 +1,98 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Welcome to Pixi Utilities for Windows'
+  ClientHeight = 494
+  ClientWidth = 835
+  Color = clBtnFace
+  DoubleBuffered = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  GlassFrame.Enabled = True
+  GlassFrame.SheetOfGlass = True
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Ribbon1: TRibbon
+    Left = 0
+    Top = 0
+    Width = 835
+    Height = 143
+    ActionManager = ActionManager
+    Caption = 'Welcome to Pixi Utilities for Windows'
+    Tabs = <
+      item
+        Caption = 'Home'
+        Page = RibbonPage5
+      end>
+    DesignSize = (
+      835
+      143)
+    StyleName = 'Ribbon - Luna'
+    object RibbonPage5: TRibbonPage
+      Left = 0
+      Top = 50
+      Width = 834
+      Height = 93
+      Caption = 'Home'
+      Index = 0
+      object RibbonGroup1: TRibbonGroup
+        Left = 4
+        Top = 3
+        Width = 109
+        Height = 86
+        ActionManager = ActionManager
+        Caption = 'Configuration'
+        GroupIndex = 0
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 376
+    Width = 835
+    Height = 118
+    Align = alBottom
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 1
+    inline fraOptimizationStatus1: TfraOptimizationStatus
+      Left = 0
+      Top = 0
+      Width = 580
+      Height = 113
+      DoubleBuffered = True
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      inherited pnlLeft: TPanel
+        inherited ProgressBar: TProgressBar
+          ExplicitLeft = 1
+          ExplicitTop = 82
+          ExplicitWidth = 263
+        end
+      end
+      inherited pnlRight: TPanel
+        inherited ProgressBar1: TProgressBar
+          ExplicitLeft = 1
+          ExplicitTop = 82
+          ExplicitWidth = 307
+        end
+      end
+    end
+  end
+  object ActionManager: TActionManager
+    ActionBars = <
+      item
+        ActionBar = RibbonGroup1
+      end>
+    Left = 40
+    Top = 168
+    StyleName = 'Ribbon - Luna'
+  end
+end

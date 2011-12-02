@@ -1,0 +1,59 @@
+package PixiPackage;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  vclx,
+  vclactnband,
+  vclribbon,
+  dbrtl;
+
+contains
+  uDLLManager in 'uDLLManager.pas',
+  uFormFader in 'uFormFader.pas',
+  uPluginManager in 'uPluginManager.pas',
+  uFindFile in 'uFindFile.pas',
+  udlgFileFind in 'udlgFileFind.pas' {dlgSearchFiles},
+  uMiscFuncs in 'uMiscFuncs.pas',
+  OmniXML in 'OmniXML\OmniXML.pas',
+  GpTextStream in 'OmniXML\GpTextStream.pas',
+  GpStreamWrapper in 'OmniXML\GpStreamWrapper.pas',
+  OmniXML_Dictionary in 'OmniXML\OmniXML_Dictionary.pas',
+  OmniXML_LookupTables in 'OmniXML\OmniXML_LookupTables.pas',
+  OmniXML_MSXML in 'OmniXML\OmniXML_MSXML.pas',
+  OmniXML_Types in 'OmniXML\OmniXML_Types.pas',
+  OmniXMLConf in 'OmniXML\OmniXMLConf.pas',
+  OmniXMLDatabase in 'OmniXML\OmniXMLDatabase.pas',
+  OmniXMLPersistent in 'OmniXML\OmniXMLPersistent.pas',
+  OmniXMLProperties in 'OmniXML\OmniXMLProperties.pas',
+  OmniXMLUtils in 'OmniXML\OmniXMLUtils.pas',
+  OmniXMLXPath in 'OmniXML\OmniXMLXPath.pas';
+
+end.

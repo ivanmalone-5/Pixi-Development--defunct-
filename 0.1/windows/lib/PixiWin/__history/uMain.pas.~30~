@@ -1,0 +1,33 @@
+unit uMain;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.RibbonLunaStyleActnCtrls, Vcl.Ribbon,
+  Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus,
+  Vcl.StdCtrls, Vcl.OleCtrls, SHDocVw, ufraOptimizationStatus, Vcl.ColorGrd,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnList, uPluginlistView;
+
+type
+  TfrmMain = class(TForm)
+    Ribbon1: TRibbon;
+    RibbonPage5: TRibbonPage;
+    Panel1: TPanel;
+    fraOptimizationStatus1: TfraOptimizationStatus;
+    RibbonGroup1: TRibbonGroup;
+    ActionManager: TActionManager;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+{$R *.dfm}
+
+end.
