@@ -20,7 +20,14 @@ Type TPluginManager             =    class(TMultiDLLLoader)
       Protected
 end;
 
+procedure Register();
+
 implementation
+
+PROCEDURE Register();
+Begin
+  RegisterComponents('Pixi',[TPluginManager]);
+End;
 
 
 FUNCTION TPluginManager.FIsValidPlugin() : boolean;

@@ -2,40 +2,41 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2011/11/16 04:46:15.000.708,=rtl.dcp</Transaction>
-    <Transaction>2011/11/16 04:46:47.000.192,P:\delphi\pixi\apps\PixiPackages\PixiPackage.dproj=C:\Users\morbidchimp\Documents\RAD Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2011/11/16 04:46:47.000.192,C:\Users\morbidchimp\Documents\RAD Studio\Projects\Package1.dproj=P:\delphi\pixi\apps\PixiPackages\PixiPackage.dproj</Transaction>
     <Transaction>2011/11/16 04:48:01.000.695,=P:\delphi\pixi\apps\PixiPackages\uDLLManager.pas</Transaction>
     <Transaction>2011/11/16 16:51:07.000.424,=I:\projects\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/11/16 16:51:12.000.456,I:\projects\delphi\pixi\apps\PixiPackages\uFormFader.pas=I:\projects\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/11/16 16:51:12.000.456,I:\projects\delphi\pixi\apps\PixiPackages\Unit1.pas=I:\projects\delphi\pixi\apps\PixiPackages\uFormFader.pas</Transaction>
     <Transaction>2011/11/16 16:52:57.000.038,=vcl.dcp</Transaction>
     <Transaction>2011/11/16 18:04:47.000.563,=I:\projects\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/11/16 18:04:59.000.811,I:\projects\delphi\pixi\apps\PixiPackages\Unit1.pas=I:\projects\delphi\pixi\apps\PixiPackages\uPluginManager.pas</Transaction>
+    <Transaction>2011/11/16 18:04:59.000.811,I:\projects\delphi\pixi\apps\PixiPackages\uPluginManager.pas=I:\projects\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
     <Transaction>2011/11/16 18:54:14.000.387,=C:\Users\myossdev\Desktop\filesearch\filesearch\uFileInfo.pas</Transaction>
     <Transaction>2011/11/16 18:54:22.000.703,C:\Users\myossdev\Desktop\filesearch\filesearch\uFileInfo.pas=</Transaction>
     <Transaction>2011/11/18 23:06:23.000.853,=P:\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/11/18 23:06:31.000.643,P:\delphi\pixi\apps\PixiPackages\Unit1.pas=P:\delphi\pixi\apps\PixiPackages\uFindFile.pas</Transaction>
+    <Transaction>2011/11/18 23:06:31.000.643,P:\delphi\pixi\apps\PixiPackages\uFindFile.pas=P:\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
     <Transaction>2011/11/19 00:35:17.000.371,=P:\delphi\pixi\apps\PixiPackages\udlgFileFind.pas</Transaction>
     <Transaction>2011/11/24 18:36:13.000.074,=P:\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/11/24 18:36:45.000.180,P:\delphi\pixi\apps\PixiPackages\uFraFindFile.dfm=P:\delphi\pixi\apps\PixiPackages\Unit1.dfm</Transaction>
-    <Transaction>2011/11/24 18:36:45.000.180,P:\delphi\pixi\apps\PixiPackages\uFraFindFile.pas=P:\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/11/24 18:36:45.000.180,P:\delphi\pixi\apps\PixiPackages\Unit1.dfm=P:\delphi\pixi\apps\PixiPackages\uFraFindFile.dfm</Transaction>
+    <Transaction>2011/11/24 18:36:45.000.180,P:\delphi\pixi\apps\PixiPackages\Unit1.pas=P:\delphi\pixi\apps\PixiPackages\uFraFindFile.pas</Transaction>
     <Transaction>2011/11/24 18:37:17.000.145,P:\delphi\pixi\apps\PixiPackages\uFraFindFile.pas=</Transaction>
-    <Transaction>2011/11/24 18:45:17.000.424,=vclactnband.dcp</Transaction>
     <Transaction>2011/11/24 18:45:17.000.411,=vclx.dcp</Transaction>
     <Transaction>2011/11/24 18:45:17.000.437,=vclribbon.dcp</Transaction>
+    <Transaction>2011/11/24 18:45:17.000.424,=vclactnband.dcp</Transaction>
     <Transaction>2011/11/24 18:46:45.000.224,=P:\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/11/24 18:46:57.000.999,P:\delphi\pixi\apps\PixiPackages\uMiscFuncs.pas=P:\delphi\pixi\apps\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/11/24 18:46:57.000.999,P:\delphi\pixi\apps\PixiPackages\Unit1.pas=P:\delphi\pixi\apps\PixiPackages\uMiscFuncs.pas</Transaction>
     <Transaction>2011/12/01 20:17:56.000.950,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXML.pas</Transaction>
     <Transaction>2011/12/01 20:21:15.000.875,=P:\delphi\pixi\apps\PixiPackages\OmniXML\GpTextStream.pas</Transaction>
     <Transaction>2011/12/01 20:21:32.000.632,=P:\delphi\pixi\apps\PixiPackages\OmniXML\GpStreamWrapper.pas</Transaction>
     <Transaction>2011/12/01 20:21:54.000.143,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXML_Types.pas</Transaction>
     <Transaction>2011/12/01 20:22:24.000.913,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXML_Dictionary.pas</Transaction>
-    <Transaction>2011/12/01 20:22:25.000.398,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXML_MSXML.pas</Transaction>
     <Transaction>2011/12/01 20:22:25.000.168,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXML_LookupTables.pas</Transaction>
+    <Transaction>2011/12/01 20:22:25.000.398,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXML_MSXML.pas</Transaction>
     <Transaction>2011/12/01 20:22:25.000.852,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLConf.pas</Transaction>
     <Transaction>2011/12/01 20:22:54.000.390,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLDatabase.pas</Transaction>
     <Transaction>2011/12/01 20:22:54.000.685,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLPersistent.pas</Transaction>
-    <Transaction>2011/12/01 20:22:55.000.356,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLUtils.pas</Transaction>
-    <Transaction>2011/12/01 20:22:55.000.000,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLProperties.pas</Transaction>
     <Transaction>2011/12/01 20:22:55.000.669,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLXPath.pas</Transaction>
+    <Transaction>2011/12/01 20:22:55.000.000,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLProperties.pas</Transaction>
+    <Transaction>2011/12/01 20:22:55.000.356,=P:\delphi\pixi\apps\PixiPackages\OmniXML\OmniXMLUtils.pas</Transaction>
     <Transaction>2011/12/01 20:23:06.000.366,=dbrtl.dcp</Transaction>
+    <Transaction>2011/12/03 04:27:26.000.770,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.1\windows\lib\PixiPackages\uPluginManager.pas=</Transaction>
   </Transactions>
 </BorlandProject>
