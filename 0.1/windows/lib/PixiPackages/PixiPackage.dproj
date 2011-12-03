@@ -94,7 +94,6 @@
 			<DCCReference Include="dbrtl.dcp"/>
 			<DCCReference Include="uDLLManager.pas"/>
 			<DCCReference Include="uFormFader.pas"/>
-			<DCCReference Include="uPluginManager.pas"/>
 			<DCCReference Include="uFindFile.pas"/>
 			<DCCReference Include="udlgFileFind.pas">
 				<Form>dlgSearchFiles</Form>

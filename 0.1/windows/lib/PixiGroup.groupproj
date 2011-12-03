@@ -3,6 +3,12 @@
 			<ProjectGuid>{626928CD-9CC6-4E37-86B9-5F7DC9FAB7CD}</ProjectGuid>
 		</PropertyGroup>
 		<ItemGroup>
+			<Projects Include="PixiPackages\PixiPluginServerPackage.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="PixiPackages\PixiPluginClientPackage.dproj">
+				<Dependencies/>
+			</Projects>
 			<Projects Include="PixiPackages\PixiPackage.dproj">
 				<Dependencies/>
 			</Projects>
@@ -10,6 +16,9 @@
 				<Dependencies/>
 			</Projects>
 			<Projects Include="PixiPlugins\template\templateplugin.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="PixiServ\PixiServ.dproj">
 				<Dependencies/>
 			</Projects>
 		</ItemGroup>
@@ -20,6 +29,24 @@
 				<Default.Personality/>
 			</BorlandProject>
 		</ProjectExtensions>
+		<Target Name="PixiPluginServerPackage">
+			<MSBuild Projects="PixiPackages\PixiPluginServerPackage.dproj"/>
+		</Target>
+		<Target Name="PixiPluginServerPackage:Clean">
+			<MSBuild Projects="PixiPackages\PixiPluginServerPackage.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PixiPluginServerPackage:Make">
+			<MSBuild Projects="PixiPackages\PixiPluginServerPackage.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PixiPluginClientPackage">
+			<MSBuild Projects="PixiPackages\PixiPluginClientPackage.dproj"/>
+		</Target>
+		<Target Name="PixiPluginClientPackage:Clean">
+			<MSBuild Projects="PixiPackages\PixiPluginClientPackage.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PixiPluginClientPackage:Make">
+			<MSBuild Projects="PixiPackages\PixiPluginClientPackage.dproj" Targets="Make"/>
+		</Target>
 		<Target Name="PixiPackage">
 			<MSBuild Projects="PixiPackages\PixiPackage.dproj"/>
 		</Target>
@@ -47,14 +74,23 @@
 		<Target Name="templateplugin:Make">
 			<MSBuild Projects="PixiPlugins\template\templateplugin.dproj" Targets="Make"/>
 		</Target>
+		<Target Name="PixiServ">
+			<MSBuild Projects="PixiServ\PixiServ.dproj"/>
+		</Target>
+		<Target Name="PixiServ:Clean">
+			<MSBuild Projects="PixiServ\PixiServ.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PixiServ:Make">
+			<MSBuild Projects="PixiServ\PixiServ.dproj" Targets="Make"/>
+		</Target>
 		<Target Name="Build">
-			<CallTarget Targets="PixiPackage;PixiWin;templateplugin"/>
+			<CallTarget Targets="PixiPluginServerPackage;PixiPluginClientPackage;PixiPackage;PixiWin;templateplugin;PixiServ"/>
 		</Target>
 		<Target Name="Clean">
-			<CallTarget Targets="PixiPackage:Clean;PixiWin:Clean;templateplugin:Clean"/>
+			<CallTarget Targets="PixiPluginServerPackage:Clean;PixiPluginClientPackage:Clean;PixiPackage:Clean;PixiWin:Clean;templateplugin:Clean;PixiServ:Clean"/>
 		</Target>
 		<Target Name="Make">
-			<CallTarget Targets="PixiPackage:Make;PixiWin:Make;templateplugin:Make"/>
+			<CallTarget Targets="PixiPluginServerPackage:Make;PixiPluginClientPackage:Make;PixiPackage:Make;PixiWin:Make;templateplugin:Make;PixiServ:Make"/>
 		</Target>
 		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
 	</Project>

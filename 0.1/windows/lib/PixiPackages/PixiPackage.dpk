@@ -38,7 +38,6 @@ requires
 contains
   uDLLManager in 'uDLLManager.pas',
   uFormFader in 'uFormFader.pas',
-  uPluginManager in 'uPluginManager.pas',
   uFindFile in 'uFindFile.pas',
   udlgFileFind in 'udlgFileFind.pas' {dlgSearchFiles},
   uMiscFuncs in 'uMiscFuncs.pas',
