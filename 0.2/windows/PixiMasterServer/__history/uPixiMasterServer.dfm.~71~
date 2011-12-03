@@ -1,0 +1,515 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Welcome to Pixi Utilities for Windows'
+  ClientHeight = 494
+  ClientWidth = 835
+  Color = clBtnFace
+  DoubleBuffered = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  GlassFrame.Enabled = True
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Ribbon: TRibbon
+    Left = 0
+    Top = 0
+    Width = 835
+    Height = 143
+    ActionManager = ActionManager
+    ScreenTips = ScreenTipsManager
+    ApplicationMenu.Menu = RibbonApplicationMenuBar1
+    Caption = 'Pixi Master Server'
+    QuickAccessToolbar.ActionBar = RibbonQuickAccessToolbar1
+    Tabs = <
+      item
+        Caption = 'Plugin Manager'
+        Page = RibbonPage5
+      end>
+    DesignSize = (
+      835
+      143)
+    StyleName = 'Ribbon - Luna'
+    object RibbonPage5: TRibbonPage
+      Left = 0
+      Top = 50
+      Width = 834
+      Height = 93
+      Caption = 'Plugin Manager'
+      Index = 0
+      object RibbonGroup1: TRibbonGroup
+        Left = 4
+        Top = 3
+        Width = 222
+        Height = 86
+        ActionManager = ActionManager
+        Caption = 'Plugins'
+        GroupIndex = 0
+        Rows = 2
+      end
+      object RibbonGroup2: TRibbonGroup
+        Left = 228
+        Top = 3
+        Width = 71
+        Height = 86
+        ActionManager = ActionManager
+        Caption = 'Navigate'
+        GroupIndex = 1
+        Rows = 2
+      end
+      object RibbonGroup4: TRibbonGroup
+        Left = 301
+        Top = 3
+        Width = 129
+        Height = 86
+        ActionManager = ActionManager
+        Caption = 'View'
+        GroupIndex = 3
+      end
+    end
+    object RibbonApplicationMenuBar1: TRibbonApplicationMenuBar
+      ActionManager = ActionManager
+      OptionItems = <>
+      RecentItems = <>
+    end
+    object RibbonQuickAccessToolbar1: TRibbonQuickAccessToolbar
+      Left = 49
+      Top = 1
+      Width = 44
+      Height = 24
+      ActionManager = ActionManager
+    end
+  end
+  object StatusPanel: TPanel
+    Left = 0
+    Top = 376
+    Width = 835
+    Height = 118
+    Align = alBottom
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 1
+  end
+  object PageControl: TPageControl
+    Left = 0
+    Top = 143
+    Width = 835
+    Height = 233
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 2
+    object TabSheet1: TTabSheet
+      Caption = 'Services'
+      inline fraPixiPluginServer: TfraPixiPluginServer
+        Left = 0
+        Top = 0
+        Width = 827
+        Height = 205
+        Align = alClient
+        TabOrder = 0
+        ExplicitWidth = 827
+        ExplicitHeight = 205
+        inherited StatusBar: TStatusBar
+          Top = 180
+          Width = 827
+          ExplicitTop = 180
+          ExplicitWidth = 827
+        end
+        inherited ListView: TListView
+          Width = 827
+          Height = 180
+          ExplicitWidth = 827
+          ExplicitHeight = 180
+        end
+        inherited ActionList: TActionList
+          inherited actRefreshListView: TAction
+            OnExecute = fraPixiPluginServeractRefreshListViewExecute
+          end
+          inherited actPluginLast: TAction
+            OnExecute = fraPixiPluginServeractPluginLastExecute
+          end
+          inherited actPluginFirst: TAction
+            OnExecute = fraPixiPluginServeractPluginFirstExecute
+          end
+          inherited actPluginBack: TAction
+            OnExecute = fraPixiPluginServeractPluginBackExecute
+          end
+          inherited actPluginNext: TAction
+            OnExecute = fraPixiPluginServeractPluginNextExecute
+          end
+          inherited actPluginLoad: TAction
+            OnExecute = fraPixiPluginServeractPluginLoadExecute
+          end
+          inherited actPluginLoadAll: TAction
+            OnExecute = fraPixiPluginServeractPluginLoadAllExecute
+          end
+          inherited actPluginClear: TAction
+            OnExecute = fraPixiPluginServeractPluginClearExecute
+          end
+        end
+        inherited ImageList: TImageList
+          Bitmap = {
+            494C010101000800200010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+            0000000000003600000028000000400000001000000001002000000000000010
+            00000000000000000000000000000000000000000000000000009C441C000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000AA5D3E009F48
+            14009E4815000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000009F48
+            14009F481400A14D1B0000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000A34F0000A34F000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000AA5A0000AA5A0000000000000000000000000000AA5A0000AA5A
+            0000AA5A0000A958000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000B76F3800AF620000AF620000DDB4A500AF620000AF620000AF62
+            0000AE5F00000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000B66C0000B66C0000B66C0000B66C0000B66C0000B367
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000BB740000BB740100BB740100BB740100BF7B2E000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000C7863C00C7863C00C7863C00C7863C00C7863D00000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000000000000000000000000000000000000000000000000000EBCD
+            B900CC8E3E00CC8E3E00CC8E3E00CC8E3E00CC8E3E00CC8E3E00CC8E3E000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000CF913000D195
+            4300D1954300D1954300D1954300D093380000000000D1954200D1954300D093
+            3C00000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000D79D4400D79D4400D79D
+            4400D79D4400D79D4400D79D4400000000000000000000000000D79D4400D79D
+            4400E9C6A4000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000000000000000000000000000EAC79F00DBA44700DBA44700DBA4
+            4700DBA44700DBA4470000000000000000000000000000000000E0AE6800DBA4
+            4700DBA447000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000000000000000000000000000000000000000000000000000DFA9
+            4900DFA94900DFA9490000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000E3AF4C00E3AF4C00E1AC3F00000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000EBC48500E5B24E00000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000000000000000000000000000424D3E000000000000003E000000
+            2800000040000000100000000100010000000000800000000000000000000000
+            000000000000000000000000FFFFFF00DFFF000000000000C7FF000000000000
+            E3FF000000000000F3FF000000000000F9C3000000000000F807000000000000
+            FC0F000000000000FC1F000000000000F83F000000000000E01F000000000000
+            C08F00000000000081C700000000000003C7000000000000FFE3000000000000
+            FFF1000000000000FFF900000000000000000000000000000000000000000000
+            000000000000}
+        end
+      end
+    end
+  end
+  object ActionManager: TActionManager
+    ActionBars = <
+      item
+        Items = <
+          item
+            Action = fraPixiPluginServer.actAddPlugins
+          end
+          item
+            Action = fraPixiPluginServer.actPluginAddPath
+          end
+          item
+            Action = fraPixiPluginServer.actPluginClear
+          end
+          item
+            Action = fraPixiPluginServer.actPluginRemove
+            Caption = 'R&emove'
+          end
+          item
+            Action = fraPixiPluginServer.actPluginLoad
+            Caption = 'L&oad'
+          end
+          item
+            Action = fraPixiPluginServer.actPluginLoadAll
+            Caption = '&Load All'
+          end
+          item
+            Action = fraPixiPluginServer.actPluginUnload
+          end
+          item
+            Action = fraPixiPluginServer.actPluginUnloadAll
+            Caption = 'U&nload All'
+          end>
+        ActionBar = RibbonGroup1
+      end
+      item
+      end
+      item
+        Items = <
+          item
+            Action = fraPixiPluginServer.actPluginFirst
+          end
+          item
+            Action = fraPixiPluginServer.actPluginBack
+          end
+          item
+            Action = fraPixiPluginServer.actPluginLast
+          end
+          item
+            Action = fraPixiPluginServer.actPluginNext
+          end>
+        ActionBar = RibbonGroup2
+      end
+      item
+      end
+      item
+        Items = <
+          item
+            Action = fraPixiPluginServer.actRefreshListView
+          end
+          item
+            Action = fraPixiPluginServer.actListviewGroups
+            Caption = '&Groups'
+            CommandStyle = csCheckBox
+            CommandProperties.Width = -1
+          end
+          item
+            Action = fraPixiPluginServer.actListviewReport
+            CommandStyle = csRadioButton
+            CommandProperties.Width = -1
+          end
+          item
+            Action = fraPixiPluginServer.actListViewList
+            CommandStyle = csRadioButton
+            CommandProperties.Width = -1
+          end
+          item
+            Action = fraPixiPluginServer.actListViewSmall
+            CommandStyle = csRadioButton
+            CommandProperties.Width = -1
+          end
+          item
+            Action = fraPixiPluginServer.actListViewIcon
+            Caption = '&Icon'
+            CommandStyle = csRadioButton
+            CommandProperties.Width = -1
+          end>
+        ActionBar = RibbonGroup4
+      end
+      item
+        Items = <
+          item
+            ChangesAllowed = [caModify]
+            Items = <
+              item
+                Action = fraPixiPluginServer.actAddPlugins
+              end>
+            Action = fraPixiPluginServer.actAddPlugins
+            KeyTip = 'F'
+          end>
+        ActionBar = RibbonApplicationMenuBar1
+        AutoSize = False
+      end
+      item
+        ActionBar = RibbonQuickAccessToolbar1
+        AutoSize = False
+      end>
+    DisabledImages = ActionManagerDisabled
+    LargeDisabledImages = ActionManagerLargeDisabled
+    LargeImages = ActionManagerLarge
+    LinkedActionLists = <
+      item
+        ActionList = fraPixiPluginServer.ActionList
+        Caption = 'ActionList'
+      end>
+    Images = ActionManagerImages
+    Left = 512
+    Top = 400
+    StyleName = 'Ribbon - Luna'
+  end
+  object ScreenTipsManager: TScreenTipsManager
+    DisplayOffset.Control = RibbonGroup1
+    LinkedActionLists = <
+      item
+        ActionList = fraPixiPluginServer.ActionList
+        Caption = 'ActionList'
+      end>
+    ScreenTips = <
+      item
+        Action = fraPixiPluginServer.actRefreshListView
+        Description.Strings = (
+          'Refresh the Listview Control')
+        Header = 'Refresh'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginLast
+        Header = 'Last'
+      end
+      item
+        Action = fraPixiPluginServer.actAddPlugins
+        Header = 'Add Plugins'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginFirst
+        Header = 'First'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginBack
+        Header = 'Back'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginNext
+        Header = 'Next'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginLoad
+        Header = 'Load'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginUnload
+        Header = 'Unload'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginLoadAll
+        Header = 'Load All'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginUnloadAll
+        Header = 'Unload All'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginClear
+        Header = 'Clear'
+      end
+      item
+        Action = fraPixiPluginServer.actPluginRemove
+        Header = 'Remove'
+      end
+      item
+        Action = fraPixiPluginServer.actListviewReport
+        Header = 'Detailed'
+      end
+      item
+        Action = fraPixiPluginServer.actListViewList
+        Header = 'List'
+      end
+      item
+        Action = fraPixiPluginServer.actListViewSmall
+        Header = 'Small'
+      end
+      item
+        Action = fraPixiPluginServer.actListViewIcon
+        Header = 'Icon'
+      end
+      item
+        Action = fraPixiPluginServer.actListviewGroups
+        Header = 'Groups'
+      end>
+    Left = 512
+    Top = 448
+  end
+  object ActionManagerImages: TImageList
+    Masked = False
+    Left = 624
+    Top = 400
+  end
+  object ActionManagerDisabled: TImageList
+    Left = 624
+    Top = 448
+  end
+  object ActionManagerLarge: TImageList
+    Left = 760
+    Top = 400
+  end
+  object ActionManagerLargeDisabled: TImageList
+    Left = 760
+    Top = 448
+  end
+end

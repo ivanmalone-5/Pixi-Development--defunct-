@@ -1,0 +1,50 @@
+unit udmPixiPluginServer;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, uDLLManager, uPluginManager, ComCtrls;
+
+type
+  TdmPixiPluginServer = class(TDataModule)
+    PluginManager: TPluginManager;
+    procedure PluginManagerEventLogAdd(Sender: TObject;
+      aBasicEvent: TBasicEventRec);
+  private
+    { Private declarations }
+    FEventLogChanged : boolean;
+  public
+    { Public declarations }
+    CONSTRUCTOR Create(AOwner : TComponent); override;
+    FUNCTION EventLogChanged() : boolean;
+
+  end;
+
+var
+  dmPixiPluginServer: TdmPixiPluginServer;
+
+implementation
+
+{%CLASSGROUP 'System.Classes.TPersistent'}
+
+{$R *.dfm}
+
+
+CONSTRUCTOR TdmPixiPluginServer.Create(AOwner : TComponent);
+Begin
+Inherited Create(AOwner);
+FEventLogChanged := False;
+End;
+
+FUNCTION TdmPixiPluginServer.EventLogChanged() : boolean;
+Begin
+Result := FEventLogChanged;
+End;
+
+procedure TdmPixiPluginServer.PluginManagerEventLogAdd(Sender: TObject;
+  aBasicEvent: TBasicEventRec);
+begin
+FEventLogChanged := True;
+end;
+
+end.

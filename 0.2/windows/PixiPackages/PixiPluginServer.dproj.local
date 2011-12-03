@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/12/03 04:46:04.000.527,=rtl.dcp</Transaction>
+    <Transaction>2011/12/03 04:48:18.000.474,C:\Users\morbidchimp\Documents\RAD Studio\Projects\Package2.dproj=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\PixiPluginServer.dproj</Transaction>
+    <Transaction>2011/12/03 04:59:01.000.090,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/12/03 04:59:44.000.066,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.dfm=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.dfm</Transaction>
+    <Transaction>2011/12/03 04:59:44.000.066,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/12/03 05:01:07.000.451,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/12/03 05:01:25.000.859,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.dfm=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.dfm</Transaction>
+    <Transaction>2011/12/03 05:01:25.000.859,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/12/03 05:12:19.000.798,=vcl.dcp</Transaction>
+    <Transaction>2011/12/03 05:37:01.000.642,=PixiCommon.dcp</Transaction>
+    <Transaction>2011/12/03 18:03:13.000.479,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.pas=</Transaction>
+    <Transaction>2011/12/04 07:14:35.631,=IndyCore.dcp</Transaction>
+    <Transaction>2011/12/04 07:14:35.638,=IndySystem.dcp</Transaction>
+    <Transaction>2011/12/04 07:14:35.647,=IndyProtocols.dcp</Transaction>
+  </Transactions>
+</BorlandProject>

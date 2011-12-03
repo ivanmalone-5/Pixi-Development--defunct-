@@ -1,0 +1,38 @@
+unit udmPixiPluginServer;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, uDLLManager, uPluginManager, ComCtrls,
+  IdBaseComponent, IdIntercept, IdServerInterceptLogBase,
+  IdServerInterceptLogFile;
+
+type
+  TdmPixiPluginServer = class(TDataModule)
+    PluginManager: TPluginManager;
+    PluginLog: TIdServerInterceptLogFile;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    CONSTRUCTOR Create(AOwner : TComponent); override;
+
+  end;
+
+var
+  dmPixiPluginServer: TdmPixiPluginServer;
+
+implementation
+
+{%CLASSGROUP 'System.Classes.TPersistent'}
+
+{$R *.dfm}
+
+
+CONSTRUCTOR TdmPixiPluginServer.Create(AOwner : TComponent);
+Begin
+Inherited Create(AOwner);
+End;
+
+
+end.

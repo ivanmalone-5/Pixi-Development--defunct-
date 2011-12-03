@@ -1,0 +1,758 @@
+unit uDLLManager;
+
+interface
+uses Classes, SysUtils, Windows;
+
+Type        TDLLInfoRec             =       record
+            Filename                :       TFileName;
+            Handle                  :       THandle;
+end;
+
+Type        TDLLLoaderThread = class(TTHread)
+            Private
+            { Private declarations }
+            FMode                   :       boolean;
+            protected
+            DLLInfo                 :       array of TDLLInfoRec;
+            PROCEDURE AddFileNames(aFileNameList : TStringList);
+            PROCEDURE AddFileName(aFileName : TFileName);
+            PROCEDURE SetMode(LoadDLLOrNot : boolean);
+            PROCEDURE Reset();
+            PROCEDURE LoadAll();
+            PROCEDURE UnloadAll();
+            PROCEDURE Execute(); override;
+
+end;
+
+
+Type        TLoadDLLErrorEvent      =       TNotifyEvent;
+Type        TUnloadDLLErrorEvent    =       TNotifyEvent;
+Type        TOnDllBeforeLoadEvent   =       TNotifyEvent;
+Type        TOnDllAfterLoadEvent    =       TNotifyEvent;
+Type        TOnDllBeforeUnloadEvent =       TNotifyEvent;
+Type        TOnDllAfterUnloadEvent  =       TNotifyEvent;
+Type        TOnStateChangedEvent    =       TNotifyEvent;
+
+
+
+Type        TDLLLoader              =       class(TComponent)
+            Private
+            FIsThreaded             :       boolean;
+            FDLLLoaderThread        :       TDLLLoaderThread;
+            FOnLoadDllErrorEvent    :       TLoadDllErrorEvent;
+            FOnUnloadDllErrorEvent  :       TUnloadDllErrorEvent;
+            FOnDllBeforeLoadEvent   :       TOnDllBeforeLoadEvent;
+            FOnDllAfterLoadEvent    :       TOnDllAfterLoadEvent;
+            FOnDllBeforeUnloadEvent :       TOnDllBeforeUnloadEvent;
+            FOnDllAfterUnloadEvent  :       TOnDllAfterUnloadEvent;
+            FOnStateChangedEvent    :       TOnStateChangedEvent;
+
+            PROCEDURE FSetFileName(aFileName : TFileName); virtual;
+            FUNCTION FGetFileName() : TFileName; virtual;
+            FUNCTION FIsLoaded() : boolean; virtual;
+            PROCEDURE FSetHandle(aHandle : THandle); virtual;
+            Public
+            CONSTRUCTOR Create(AOwner : TComponent); override;
+            DESTRUCTOR Destroy(); override;
+            FUNCTION LoadDll() : integer; virtual;
+            FUNCTION UnloadDll() : boolean; virtual;
+            Protected
+            FFilename               :       TFileName;
+            FHandle                 :       THandle;
+            Published
+            PROPERTY Filename : TFilename read FGetFileName write FSetFileName;
+            PROPERTY Handle : THandle read FHandle write FSetHandle;
+            PROPERTY IsLoaded : boolean read FIsLoaded;
+            PROPERTY ThreadedLoadUnload : boolean read FIsThreaded write FIsThreaded;
+            PROPERTY OnLoadDllErrorEvent : TLoadDllErrorEvent read FOnLoadDllErrorEvent write FOnLoadDllErrorEvent;
+            PROPERTY OnUnloadDllErrorEvent : TUnloadDllErrorEvent read FOnUnloadDllErrorEvent write FOnUnloadDllErrorEvent;
+            PROPERTY OnDllBeforeLoadEvent : TOnDllBeforeLoadEvent read FOnDllBeforeLoadEvent write FOnDllBeforeLoadEvent;
+            PROPERTY OnDllAfterLoadEvent : TOnDllAfterLoadEvent read FOnDllAfterLoadEvent write FOnDllAfterLoadEvent;
+            PROPERTY OnDllBeforeUnloadEVent : TOnDllBeforeUnloadEvent read FOnDllBeforeUnloadEvent write FOnDllBeforeUnloadEvent;
+            PROPERTY OnDllAfterUnloadEvent : TOnDllAfterUnloadEvent read FOnDllAfterUnloadEvent write FOnDllAfterUnloadEvent;
+            PROPERTY OnStateChangedEvent : TOnStateChangedEvent read FOnStateChangedEvent write FOnStateChangedEvent;
+end;
+
+
+Type        TOnBeforeloadAllEvent   =         TNotifyEvent;
+Type        TOnAfterLoadAllEvent    =         TNotifyEvent;
+Type        TOnBeforeUnloadAllEvent =         TNotifyEvent;
+Type        TOnAfterUnloadAllEvent  =         TNotifyEvent;
+Type        TOnClearEvent           =         TNotifyEvent;
+Type        TOnNavigateEvent        =         TNotifyEvent;
+Type        TOnArrayNotInSyncError  =         TNotifyEvent;
+Type        TOnBeforeAddEvent       =         TNotifyEvent;
+Type        TOnAfterAddEvent        =         TNotifyEvent;
+Type        TOnProgressEvent        =         TNotifyEvent;
+
+Type        TMultiDLLLoader         =         class(TDLLLoader)
+            Private
+            FDLLHandles             :         array of THandle;
+            FFileNames              :         array of TFileName;
+            FCurrentIndex           :         integer;
+            FOnBeforeLoadAllEvent   :         TOnBeforeLoadAllEvent;
+            FOnAfterLoadAllEvent    :         TOnAfterLoadAllEvent;
+            FOnBeforeUnloadAllEvent :         TOnBeforeUnloadAllEvent;
+            FOnAfterUnloadAllEvent  :         TOnAfterUnloadAllEvent;
+            FOnClearEvent           :         TOnClearEvent;
+            FOnNavigateEvent        :         TOnNavigateEvent;
+            FOnArrayNotInSyncError  :         TOnArrayNotInSyncError;
+            FOnBeforeAddEvent       :         TOnBeforeAddEvent;
+            FOnAfterAddEvent        :         TOnAfterAddEvent;
+            FOnProgressEvent        :         TOnProgressEvent;
+            PROCEDURE FSetFileName(aFileName : TFileName); override;
+            FUNCTION FGetDLLCount() : integer; virtual;
+            FUNCTION FAlreadyExists(aFileName : TFileName) : boolean;
+            Public
+            CONSTRUCTOR Create(AOwner : TComponent); override;
+            DESTRUCTOR Destroy(); override;
+            FUNCTION LoadDll() : integer; override;
+            FUNCTION UnloadDll() : boolean; override;
+            FUNCTION LoadAll() : boolean; virtual;
+            FUNCTION LoadAtIndex(aIndex : integer) : boolean; virtual;
+            FUNCTION UnloadAll() : boolean; virtual;
+            FUNCTION UnloadAtIndex(aIndex : integer) : boolean; virtual;
+            PROCEDURE Clear(); virtual;
+            PROCEDURE First(); virtual;
+            PROCEDURE Last(); virtual;
+            PROCEDURE Next(); virtual;
+            PROCEDURE Back(); virtual;
+            PROCEDURE Remove(); virtual;
+            PROCEDURE Select(aIndex : integer); virtual;
+            PROCEDURE Add(aFileName : TFileName); virtual;
+            FUNCTION Get(aIndex : integer) : TDLLInfoRec; virtual;
+
+            FUNCTION FindByFileName(aFileName : TFileName) : integer;
+            Published
+            PROPERTY Filename : TFilename read FFileName;// write FSetFileName;
+//            PROPERTY Handle : THandle read FHandle; write FHandle;
+            PROPERTY CurrentIndex : integer read FCurrentIndex;
+            PROPERTY Count : integer read FGetDLLCount;
+            PROPERTY OnBeforeLoadAllEvent : TOnBeforeLoadAllEvent read FOnBeforeLoadAllEvent write FOnBeforeLoadAllEVent;
+            PROPERTY OnAfterLoadAllEvent : TOnAfterLoadAllEvent read FOnAfterLoadAllEvent write FOnAfterLoadAllEvent;
+            PROPERTY OnBeforeUnloadAllEvent : TOnBeforeUnloadAllEvent read FOnBeforeUnloadAllEvent write FOnBeforeUnloadAllEvent;
+            PROPERTY OnAfterUnloadALllEvent : TOnAfterUnloadAllEvent read FOnAfterUnloadAllEvent write FOnAfterUnloadAllEvent;
+            PROPERTY OnClearEvent : TOnClearEvent read FOnClearEvent write FOnClearEvent;
+            PROPERTY OnNavigateEvent : TOnNavigateEvent read FOnNavigateEvent write FOnNavigateEvent;
+            PROPERTY OnArrayNotInSyncError : TOnArrayNotInSyncError read FOnArrayNotInSyncError write FOnArrayNotInSyncError;
+            PROPERTY OnBeforeAddEvent : TOnBeforeAddEvent read FOnBeforeAddEvent write FOnBeforeAddEvent;
+            PROPERTY OnAfterAddEvent : TOnAfterAddEvent read FOnAfterAddEvent write FOnAfterAddEvent;
+            PROPERTY OnProgressEvent : TOnProgressEvent read FOnProgressEvent write FOnProgressEvent;
+
+            Protected
+
+end;
+
+procedure Register();
+
+implementation
+
+PROCEDURE Register();
+Begin
+  RegisterComponents('Pixi',[TDLLLoader, TMultiDLLLoader]);
+End;
+
+
+{
+  Important: Methods and properties of objects in visual components can only be
+  used in a method called using Synchronize, for example,
+
+      Synchronize(UpdateCaption);
+
+  and UpdateCaption could look like,
+
+    procedure TDLLLoaderThread.UpdateCaption;
+    begin
+      Form1.Caption := 'Updated in a thread';
+    end;
+
+    or
+
+    Synchronize(
+      procedure
+      begin
+        Form1.Caption := 'Updated in thread via an anonymous method'
+      end
+      )
+    );
+
+  where an anonymous method is passed.
+
+  Similarly, the developer can call the Queue method with similar parameters as
+  above, instead passing another TThread class as the first parameter, putting
+  the calling thread in a queue with the other thread.
+
+}
+
+{ TDLLLoaderThread }
+PROCEDURE TDLLLoaderThread.SetMode(LoadDLLOrNot : boolean);
+Begin
+Self.FMode := LoadDLLOrNot;
+End;
+
+PROCEDURE TDLLLoaderThread.Reset;
+begin
+  SetLength(DLLInfo,0);
+  Suspend;
+end;
+
+procedure TDLLLoaderThread.Execute;
+begin
+  { Place thread code here }
+  Reset;
+
+  if FMode = True then
+     Begin
+       LoadAll;
+     End
+  ELSE
+    Begin
+       UnloadAll;
+    End;
+end;
+
+PROCEDURE TDLLLoaderThread.LoadAll;
+Var
+  i   :   integer;
+begin
+if Length(DLLInfo) > 0 then
+   Begin
+   for i := Low(DLLinfo) to High(DLLInfo) do
+        Begin
+        DLLInfo[i].Handle := LoadLibrary(PChar(DLLInfo[i].Filename));
+        End;
+   End;
+end;
+
+PROCEDURE TDLLLoaderThread.UnLoadAll;
+Var
+  i   :   integer;
+begin
+if Length(DLLInfo) > 0 then
+   Begin
+   for i := High(DLLinfo) downto Low(DLLInfo) do
+        Begin
+        FreeLibrary(DLLInfo[i].Handle);
+        DLLInfo[i].Handle := 0;
+        End;
+   End;
+
+End;
+
+PROCEDURE TDLLLoaderThread.AddFileNames(aFileNameList: TStringList);
+Var
+  i : integer;
+begin
+Reset;
+
+SetLength(DLLInfo,aFileNameList.Count + Length(DLLInfo));
+
+for i := High(DLLinfo) downto Low(DLLInfo) do
+     Begin
+     DLLInfo[i].Handle := 0;
+     DLLInfo[i].Filename := aFileNameList.Strings[i];
+     End;
+
+end;
+
+PROCEDURE TDLLLoaderThread.AddFileName(aFileName : TFileName);
+Begin
+  if Length(DLLinfo) = 0 then SetLength(DLLInfo,1);
+  DLLInfo[0].Filename := aFileName;
+  DLLInfo[0].Handle := 0;
+End;
+
+
+FUNCTION TMultiDLLLoader.LoadDll() : integer;
+Begin
+Result := Inherited LoadDll;
+// Select(FCurrentIndex);
+FDLLHandles[FCurrentIndex] := FHandle;
+FFileNames[FCurrentIndex] := FFileName;
+End;
+
+FUNCTION TMultiDLLLoader.UnloadDll() : boolean;
+Begin
+Result := Inherited UnloadDll;
+// Select(FCurrentIndex);
+FDLLHandles[FCurrentIndex] := FHandle;
+FFileNames[FCurrentIndex] := FFileName;
+End;
+
+
+FUNCTION TMultiDLLLoader.FAlreadyExists(aFileName : TFileName) : boolean;
+Var
+  i : integer;
+Begin
+Result := False;
+if Count > 0 then
+   Begin
+    for i := 0 to Self.Count - 1 do
+         Begin
+         if (LowerCase(FFileNames[i]) = LowerCase(aFileName)) or
+            (LowerCase(ExtractFileName(FFileNames[i])) = ExtractFileName(LowerCase(aFileName))) then
+            Begin
+              Result := True;
+              Break;
+            End;
+         End;
+    End;
+End;
+
+CONSTRUCTOR TMultiDLLLoader.Create(AOwner : TComponent);
+Begin
+Inherited Create(AOwner);
+Self.FCurrentIndex := 0;
+
+SetLength(Self.FDLLHandles,0);
+SetLength(Self.FFilename,0);
+
+End;
+
+DESTRUCTOR TMultiDLLLoader.Destroy();
+Begin
+if (Length(FDLLHandles) > 0) OR
+   (Length(FFileNames) > 0) then
+   Begin
+   Clear;
+   Finalize(FDLLHandles);
+   Finalize(FFileNames);
+   End;
+
+Inherited Destroy();
+End;
+
+FUNCTION TMultiDLLLoader.LoadAtIndex(aIndex : integer) : boolean;
+Var
+  PrevIndex : integer;
+Begin
+Result := False;
+if (Count > 0) AND
+   (aIndex >= 0) AND
+   (aIndex <= Count -1) then
+      Begin
+      if Assigned(OnDllBeforeLoadEvent) then OnDllBeforeLoadEvent(Self);
+      PrevIndex := FCurrentIndex;
+      Select(aIndex);
+      if LoadDll > 0 then Result := True;
+      Select(PrevIndex);
+      if Assigned(OnDllAfterLoadEvent) then OnDllAfterLoadEvent(Self);
+      if Assigned(OnStateChangedEvent) then OnStateChangedEvent(Self);
+      End;
+End;
+
+FUNCTION TMultiDLLLoader.UnloadAtIndex(aIndex : integer) : boolean;
+Var
+  PrevIndex : Integer;
+Begin
+Result := False;
+if (Count > 0) AND
+   (aIndex >= 0) AND
+   (aIndex <= Count -1) then
+      Begin
+      if Assigned(OnDllBeforeUnLoadEvent) then OnDllBeforeUnLoadEvent(Self);
+
+      PrevIndex := FCurrentIndex;
+      Select(aIndex);
+      Result := UnLoadDll;
+      Select(PrevIndex);
+
+      if Assigned(OnDllAfterUnLoadEvent) then OnDllAfterUnLoadEvent(Self);
+      if Assigned(OnStateChangedEvent) then OnStateChangedEvent(Self);
+      End;
+End;
+
+FUNCTION TMultiDLLLoader.Get(aIndex : integer) : TDLLInfoRec;
+Var
+  PrevIndex : integer;
+Begin
+if (Count > 0) AND
+   (aIndex >= 0) AND
+   (aIndex <= Count -1) then
+      Begin
+      PrevIndex := FCurrentIndex;
+      Select(aIndex);
+        Result.Filename := FileName;
+        Result.Handle := Handle;
+      Select(PrevIndex);
+      End
+   ELSE
+      Begin
+        Result.Filename := '';
+        Result.Handle := 0;
+      End;
+End;
+
+PROCEDURE TMultiDllLoader.Add(aFileName : TFileName);
+Begin
+if (FileExists(aFileName)) AND (FAlreadyExists(aFileName) = false) then
+   Begin
+   if Assigned(Self.FOnBeforeAddEvent) then FOnBeforeAddEvent(Self);
+
+   SetLength(Self.FDLLHandles, Length(FDLLHandles) + 1);
+   SetLength(Self.FFileNames, Length(FFileNames) + 1);
+
+ //  if Length(FDLLHandles) = 1 then Select(0);
+
+
+ //  Select(High(FFileNames));
+
+   FFileNames[High(FFileNames)] := aFileName;
+   FDLLHandleS[High(FDLLHandles)] := 0;
+
+//  FFileName := aFileName;
+//   FHandle := 0;
+
+//   FCurrentIndex := (High(FFileNames));
+
+//   Select(High(FDLLHandles));
+    if Length(FDLLHandles) = 1 then
+        Begin
+        Self.FFilename := aFileName;
+        Self.FHandle := 0;
+        Select(0);
+        End;
+
+   if Assigned(Self.FOnAfterAddEvent) then FOnAfterAddEvent(Self);
+   if Assigned(OnStateChangedEvent) then OnStateChangedEvent(Self);
+//   Select(FCurrentIndex);
+
+   End;
+End;
+
+
+
+PROCEDURE TMultiDllLoader.FSetFileName(aFileName : TFileName);
+Begin
+if NOT FAlreadyExists(FFileName) then
+   Begin
+   Inherited FSetFileName(aFileName);
+   FFileNames[CurrentIndex] := aFileName;
+   FDLLHandles[CurrentIndex] := FHandle;
+   End;
+End;
+
+PROCEDURE TMultiDllLoader.Remove();
+Var
+  TempArray1  : array of TFileName;
+  TempArray2  : array of THandle;
+  i           : integer;
+  j           : integer;
+Begin
+if Count > 0 then
+  Begin
+  if Handle > 0 then UnloadDll;
+
+  SetLength(TempArray1, Length(FFileNames) - 1);
+  SetLength(TempArray2, Length(FDLLHandles) - 1);
+
+  j := 0;
+   for i := Low(FFileNames) to High(FFileNames) do
+       Begin
+       if i <> CurrentIndex then
+           Begin
+           TempArray1[j] := FFileNames[i];
+           TempArray2[j] := FDLLHandles[i];
+           End
+       ELSE
+          Begin
+             Inc(j,1);
+           End;
+        Inc(j,1);
+        End;
+
+   SetLength(FFileNames,Length(TempArray1));
+   SetLength(FDLLHandles,Length(TempArray2));
+
+   for i := Low(FFileNames) to High(FFileNames) do
+        Begin
+        FFileNames[i] := TempArray1[i];
+        FDLLHandles[i] := TempArray2[i];
+        End;
+
+   SetLength(TempArray1,0);
+   SetLength(TempArray2,0);
+
+   Finalize(TempArray1);
+   Finalize(TempArray2);
+
+   FCurrentIndex := 0;
+
+   End;
+End;
+
+FUNCTION TMultiDLLLoader.LoadAll() : boolean;
+Var
+  i : integer;
+Begin
+// result is assumed to be ok unless we get one false from LoadAtIndex
+// A false result from this func simly means one or more dll's had problems
+// loading, not that the entire process failed (some may be loaded)
+Result := True;
+if Count > 0 then
+   Begin
+   if Assigned(Self.FOnBeforeLoadAllEvent) then OnBeforeLoadAllEvent(Self);
+
+   for i := Low(FFileNames) to High(FFileNames) do
+        Begin
+          // Load DLL
+        If LoadAtIndex(i) = False then Result := False;
+        //        if Assigned(FOnProgressEvent) then OnProgressEvent(Self,0,Count - 1, CurrentIndex);
+        if Assigned(FOnProgressEvent) then OnProgressEvent(Self);
+        End;
+   if Assigned(Self.FOnAfterLoadAllEvent) then OnAfterLoadAllEvent(Self);
+   End;
+End;
+
+FUNCTION TMultiDllLoader.FindByFileName(aFileName : TFileName) : integer;
+Var
+  i : integer;
+Begin
+// Finds index by Filename (with or without path, since no Filename can be added, even
+// if its in a different path (duplicate dll's)
+Result := -1;
+if Count > 0 then
+   Begin
+    for i := 0 to Self.Count - 1 do
+         Begin
+         if (LowerCase(FFileNames[i]) = LowerCase(aFileName)) or
+            (LowerCase(ExtractFileName(FFileNames[i])) = ExtractFileName(LowerCase(aFileName))) then
+            Begin
+              Result := i;
+              Break;
+            End;
+         End;
+    End;
+
+End;
+
+FUNCTION TMultiDLLLoader.UnloadAll() : boolean;
+Var
+  i   :   integer;
+Begin
+// Result is assumed to be True at first,
+// if result becomes false, it means that one or more dll's didn't unload
+// correctly - some may have, not that the entire process failed
+Result := True;
+if Count > 0 then
+   Begin
+   if Assigned(Self.FOnBeforeUnLoadAllEvent) then OnBeforeUnLoadAllEvent(Self);
+
+   for i := High(FDLLHandles) downto Low(FDLLHandles) do
+        Begin
+        if UnloadAtIndex(i) = false then result := false;
+//        if Assigned(FOnProgressEvent) then OnProgressEvent(Self,0,Count - 1, CurrentIndex);
+        if Assigned(FOnProgressEvent) then OnProgressEvent(Self);
+        End;
+   if Assigned(Self.FOnAfterUnLoadAllEvent) then Self.OnAfterUnloadALllEvent(Self);
+   End;
+End;
+
+
+PROCEDURE TMultiDllLoader.Select(aIndex : integer);
+Begin
+if (aIndex <= (Count - 1)) AND
+   (aIndex >= 0) then
+      Begin
+
+      if CurrentIndex >= 0 then
+         Begin
+         FFileNames[CurrentIndex] := FFileName;
+         FDLLHandles[CurrentIndex] := FHandle;
+         End;
+
+      FCurrentIndex := aIndex;
+      FFileName := FFileNames[aIndex];
+      FHandle := FDLLHandles[aIndex];
+      if Assigned(Self.FOnNavigateEvent) then OnNavigateEvent(Self);
+      if Assigned(Self.FOnStateChangedEvent) then OnStateChangedEvent(Self);
+      End;
+End;
+
+FUNCTION TMultiDLLLoader.FGetDLLCount() : integer;
+Begin
+if Length(FDLLHandles) <> Length(FFileNames) then
+   Begin
+     // somehow, the two arrays got out of sync
+   SetLength(FDLLHandles,0);
+   SetLength(FFileNames, 0);
+   Result := 0;
+   if Assigned(Self.FOnArrayNotInSyncError) then OnArrayNotInSyncError(Self);
+   End
+ELSE
+   Begin
+     Result := Length(FFileNames);
+   End;
+
+End;
+
+PROCEDURE TMultiDLLLoader.Clear();
+Begin
+UnloadAll;
+SetLength(FDLLHandles,0);
+SetLength(FFileNames,0);
+FFileName := '';
+FCurrentIndex := -1;
+FHandle := 0;
+
+if Assigned(FOnClearEvent) then OnClearEvent(Self);
+if Assigned(Self.FOnStateChangedEvent) then OnStateChangedEvent(Self);
+End;
+
+PROCEDURE TMultiDLLLoader.First();
+Begin
+if Count > 0 then
+   Begin
+   Select(0);
+   End;
+End;
+
+PROCEDURE TMultiDLLLoader.Last();
+Begin
+if Count > 0 then
+   Begin
+   Select(Count - 1);
+   End;
+End;
+
+PROCEDURE TMultiDLLLoader.Next();
+Begin
+if Count > 0 then
+   Begin
+   Select(CurrentIndex + 1);
+   End;
+End;
+
+PROCEDURE TMultiDLLLoader.Back();
+Begin
+if Count > 0 then
+   Begin
+   Select(CurrentIndex - 1);
+   End;
+End;
+
+
+
+CONSTRUCTOR TDLLLoader.Create(AOwner : TComponent);
+Begin
+Inherited Create(AOwner);
+FFileName := '';
+FHandle := 0;
+FIsThreaded := False;
+FDLLLoaderThread := TDLLLoaderThread.Create(True);
+FDLLLoaderThread.FreeOnTerminate := False;
+End;
+
+DESTRUCTOR TDLLLoader.Destroy();
+Begin
+
+if Handle > 0 then UnloadDll;
+
+FDLLLoaderThread.Terminate;
+FDLLLoaderThread.Free;
+
+Inherited Destroy();
+End;
+
+FUNCTION TDLLLoader.FGetFileName() : TFileName;
+Begin
+  Result := FFileName;
+End;
+
+FUNCTION TDLLLoader.FIsLoaded() : boolean;
+begin
+if FHandle > 0 then result := true else result := false;
+end;
+
+PROCEDURE TDLLLoader.FSetFileName(aFileName : TFileName);
+Begin
+if FileExists(aFileName) then
+   Begin
+   if FHandle > 0 then UnloadDll;
+   FFileName := aFileName;
+   if Assigned(FOnStateChangedEvent) then OnStateChangedEvent(Self);
+   End;
+End;
+
+PROCEDURE TDLLLoader.FSetHandle(aHandle : THandle);
+Begin
+FHandle := aHandle;
+if Assigned(OnStateChangedEvent) then OnStateChangedEvent(Self);
+End;
+
+
+FUNCTION TDLLLoader.LoadDll() : integer;
+Begin
+if FHandle = 0 then
+  Begin
+  Try
+        Begin
+        if Assigned(FOnDllBeforeLoadEvent) then OnDllBeforeLoadEvent(Self);
+
+        FHandle := LoadLibrary(PChar(FileName));
+        if FIsThreaded then
+           Begin
+             Self.FDLLLoaderThread.AddFileName(FileName);
+             FDLLLoaderThread.SetMode(True);
+             FDLLLoaderThread.Execute;
+           End;
+        Result := FHandle;
+
+        if FHandle = 0 then
+           Begin
+             if Assigned(Self.FOnLoadDllErrorEvent) then
+             Begin
+             OnLoadDllErrorEvent(Self);
+             if Assigned(FOnStateChangedEvent) then OnStateChangedEvent(Self);
+             Exit;
+             End;
+           End;
+
+        if Assigned(FOnDllAfterLoadEvent) then OnDllAfterLoadEvent(Self);
+       End;
+   Except
+        Begin
+        Result := 0;
+        if Assigned(FOnLoadDllErrorEvent) then OnLoadDllErrorEvent(Self);
+        End;
+   End;
+  End
+ELSE
+  Begin
+    Result := FHandle;
+  End;
+if Assigned(FOnStateChangedEvent) then OnStateChangedEvent(Self);
+End;
+
+
+FUNCTION TDLLLoader.UnloadDll() : boolean;
+Begin
+Result := False;
+if FHandle > 0 then
+   Begin
+    Try
+          Begin
+          if Assigned(FOnDllBeforeUnLoadEvent) then OnDllBeforeUnLoadEvent(Self);
+          FreeLibrary(FHandle);
+          FHandle := 0;
+          Result := True;
+          if Assigned(FOnDllAfterUnLoadEvent) then OnDllAfterUnLoadEvent(Self);
+          End;
+      Except
+          Begin
+          FHandle := 0;
+          Result := False;
+          if Assigned(FOnUnloadDllErrorEvent) then FOnUnloadDllErrorEvent(Self);
+          End;
+      End;
+   if Assigned(FOnStateChangedEvent) then OnStateChangedEvent(Self);
+   End;
+End;
+
+
+
+
+
+
+
+end.
