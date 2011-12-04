@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2011/12/03 04:45:45.900,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiDevGroup.groupproj=C:\Users\morbidchimp\Documents\RAD Studio\Projects\ProjectGroup1.groupproj</Transaction>
+	<Transactions>
+    <Transaction>2011/12/03 04:45:45.000.900,C:\Users\morbidchimp\Documents\RAD Studio\Projects\ProjectGroup1.groupproj=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiDevGroup.groupproj</Transaction>
   </Transactions>
-  <Default.Personality>
-    <Projects ActiveProject="C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiMasterServer\PixiMasterServer.dproj"/>
-  </Default.Personality>
+	<Default.Personality>
+		<Projects ActiveProject="C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\PixiCommon.dproj"/>
+	</Default.Personality>
 </BorlandProject>

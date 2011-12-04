@@ -1,22 +1,0 @@
-<MyTest><SimpleElement AttrX="yes" AttrY="1">     Text &lt;with&gt; &quot;strange&quot; chars,   words   &amp; whitespaces   </SimpleElement><![CDATA[     CDATA section <with> "strange" chars,   words   & whitespaces   ]]><![CDATA[TPF0TfMainfMainLeftTopActiveControl
-bDriveSaveCaptionOmniXML demo: XtremeClientHeightâ€ ClientWidthÃ—Color	clBtnFaceFont.CharsetDEFAULT_CHARSET
-Font.ColorclWindowTextFont.HeightÃµ	Font.NameMS Shell Dlg 2
-Font.Styleà€€OldCreateOrderPosition
-poDesignedScaledVisible	OnCreate
-FormCreatePixelsPerInch`
-TextHeightà€€TLabelLabel8LeftTopWidthiHeight!AutoSizeCaptionoThis demo shows how to create XML document, write different type of data to XML document and save it to a file.WordWrap	à€€à€€TBevelBevel3LeftTop0WidthiHeightà€€à€€TBevelBevel1Left8ToppWidth9Heightà€€à€€TLabelLabel2Left8Top8WidthÂ«à€€HeightCaption#Name of the &file with XML documentFocusControl	eFileNameà€€à€€TLabelLabel10LeftTophWidth,HeightCaptionSave Font.CharsetDEFAULT_CHARSET
-Font.ColorclWindowTextFont.HeightÃ°	Font.NameMS Shell Dlg 2
-Font.StylefsBoldà€€
-ParentFontà€€à€€TLabelLabel9Left8TopxWidth}HeightCaptionUse &encoding (code page)à€€à€€TEdit	eFileNameLeft8TopHWidthÃ±à€€HeightTabOrderà€€TextQ\\192.168.0.15\projects\delphi\pixi\apps\PixiPackages\OmniXML\demo\doc\xtreme.xmlà€€à€€	TComboBoxcobCodePageLeft8TopË†à€€WidthÃ±à€€HeightStylecsDropDownList	ItemIndexà€€Sorted	TabOrderText<none (UTF-8)>Items.Strings<none (UTF-8)>euc-jpiso-2022-jp
-iso-8859-1
-iso-8859-2
-iso-8859-3
-iso-8859-4
-iso-8859-5
-iso-8859-6
-iso-8859-7
-iso-8859-8
-iso-8859-9	shift-jisutf-16utf-8windows-1250windows-1251windows-1252windows-1253windows-1254windows-1255windows-1256windows-1257windows-1258à€€à€€à€€TButton
-bDriveSaveLeft;TopÃ´à€€WidthÃ®à€€HeightCaption&Scan, create and save documentTabOrderOnClickbDriveSaveClickà€€à€€TRadioGrouprgOutputFormatLeft8TopÂ¨à€€WidthÃ±à€€HeightACaption XML style format 	ItemIndexà€€Items.Strings&none (no formatting)&flat (CRLF before new tags)#&indent (create hierarchy document)à€€TabOrderà€€à€€à€€]]><![CDATA[<greeting>Hello, world!</greeting>]]><!--Just
-<!another!>
-comment--><port active="1"><keyword>echo</keyword><decimal>7</decimal><desc>Echo</desc></port><port active="1"><keyword>ftp</keyword><decimal>21</decimal><desc>File Transfer [Control]</desc></port><port active="1"><keyword>ssh</keyword><decimal>22</decimal><desc>SSH Remote Login Protocol</desc></port></MyTest>

@@ -1,0 +1,96 @@
+unit uPixiMasterServer;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.RibbonLunaStyleActnCtrls, Vcl.Ribbon,
+  Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus,
+  Vcl.StdCtrls, Vcl.OleCtrls, SHDocVw, Vcl.ColorGrd,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnList, ufraPixiPluginServer,
+  Vcl.ScreenTips, Vcl.ImgList, Vcl.ActnMenus, Vcl.RibbonActnMenus;
+
+type
+  TfrmMain = class(TForm)
+    Ribbon: TRibbon;
+    RibbonPage5: TRibbonPage;
+    RibbonGroup1: TRibbonGroup;
+    fraPixiPluginServer: TfraPixiPluginServer;
+    ActionManager: TActionManager;
+    RibbonGroup2: TRibbonGroup;
+    RibbonGroup4: TRibbonGroup;
+    ScreenTipsManager: TScreenTipsManager;
+    ActionManagerImages: TImageList;
+    ActionManagerDisabled: TImageList;
+    ActionManagerLarge: TImageList;
+    ActionManagerLargeDisabled: TImageList;
+    RibbonApplicationMenuBar1: TRibbonApplicationMenuBar;
+    RibbonQuickAccessToolbar1: TRibbonQuickAccessToolbar;
+    TrayIcon: TTrayIcon;
+    TrayIconImages: TImageList;
+    procedure fraPixiPluginServeractPluginLoadAllExecute(Sender: TObject);
+    procedure fraPixiPluginServeractRefreshListViewExecute(Sender: TObject);
+    procedure fraPixiPluginServeractPluginFirstExecute(Sender: TObject);
+    procedure fraPixiPluginServeractPluginBackExecute(Sender: TObject);
+    procedure fraPixiPluginServeractPluginNextExecute(Sender: TObject);
+    procedure fraPixiPluginServeractPluginLoadExecute(Sender: TObject);
+    procedure fraPixiPluginServeractPluginClearExecute(Sender: TObject);
+    procedure fraPixiPluginServeractPluginLastExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmMain.fraPixiPluginServeractPluginBackExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginBackExecute(Sender);
+end;
+
+procedure TfrmMain.fraPixiPluginServeractPluginClearExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginClearExecute(Sender);
+end;
+
+procedure TfrmMain.fraPixiPluginServeractPluginFirstExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginFirstExecute(Sender);
+end;
+
+procedure TfrmMain.fraPixiPluginServeractPluginLastExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginLastExecute(Sender);
+end;
+
+procedure TfrmMain.fraPixiPluginServeractPluginLoadAllExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginLoadAllExecute(Sender);
+end;
+
+procedure TfrmMain.fraPixiPluginServeractPluginLoadExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginLoadExecute(Sender);
+
+end;
+
+procedure TfrmMain.fraPixiPluginServeractPluginNextExecute(Sender: TObject);
+begin
+  fraPixiPluginServer.actPluginNextExecute(Sender);
+end;
+
+procedure TfrmMain.fraPixiPluginServeractRefreshListViewExecute(
+  Sender: TObject);
+begin
+  fraPixiPluginServer.actRefreshListViewExecute(Sender);
+
+
+end;
+
+end.
