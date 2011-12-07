@@ -8,8 +8,6 @@ Const
 
 TYPE  TFUNCBoolean              =   FUNCTION() : boolean; stdcall;
 
-
-
 Type TPluginManager             =    class(TMultiDLLLoader)
       Private
       FUNCTION FIsValidPlugin() : boolean;
@@ -33,6 +31,17 @@ Type TPluginManager             =    class(TMultiDLLLoader)
       Protected
 end;
 
+Type  TPixiPluginServer         =    class(TComponent)
+      Private
+      FPluginManager            :    TPluginManager;
+      Public
+      CONSTRUCTOR Create(AOwner : TComponent); override;
+      DESTRUCTOR Destroy(); override;
+      Published
+      Protected
+end;
+
+
 procedure Register();
 
 implementation
@@ -40,8 +49,22 @@ implementation
 
 PROCEDURE Register();
 Begin
-  RegisterComponents('Pixi',[TPluginManager]);
+  RegisterComponents('Pixi',[TPluginManager, TPixiPluginServer]);
 End;
+
+
+CONSTRUCTOR TPixiPluginServer.Create(AOwner: TComponent);
+begin
+  Inherited Create(AOwner);
+  FPluginManager := TPluginManager.Create(Self);
+
+end;
+
+DESTRUCTOR TPixiPluginServer.Destroy;
+begin
+  FPluginManager.Free;
+  Inherited Destroy();
+end;
 
 
 FUNCTION TPluginManager.FIsValidPlugin() : boolean;

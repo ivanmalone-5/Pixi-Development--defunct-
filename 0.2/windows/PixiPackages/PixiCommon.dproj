@@ -80,9 +80,24 @@
 			</DelphiCompile>
 			<DCCReference Include="rtl.dcp"/>
 			<DCCReference Include="vcl.dcp"/>
+			<DCCReference Include="vclx.dcp"/>
+			<DCCReference Include="vclactnband.dcp"/>
+			<DCCReference Include="vclribbon.dcp"/>
 			<DCCReference Include="uDLLManager.pas"/>
 			<DCCReference Include="uMiscFuncs.pas"/>
 			<DCCReference Include="uPluginManager.pas"/>
+			<DCCReference Include="ufraPixiPluginServer.pas">
+				<Form>fraPixiPluginServer</Form>
+				<DesignClass>TFrame</DesignClass>
+			</DCCReference>
+			<DCCReference Include="uFindFile.pas"/>
+			<DCCReference Include="udlgFileFind.pas">
+				<Form>dlgSearchFiles</Form>
+			</DCCReference>
+			<DCCReference Include="ufraListView.pas">
+				<Form>fraListView</Form>
+				<DesignClass>TFrame</DesignClass>
+			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

@@ -6,13 +6,7 @@
 			<Projects Include="PixiPackages\PixiCommon.dproj">
 				<Dependencies/>
 			</Projects>
-			<Projects Include="PixiPackages\PixiPluginServer.dproj">
-				<Dependencies/>
-			</Projects>
 			<Projects Include="PixiMasterServer\PixiMasterServer.dproj">
-				<Dependencies/>
-			</Projects>
-			<Projects Include="PixiPackages\PixiPluginClient.dproj">
 				<Dependencies/>
 			</Projects>
 		</ItemGroup>
@@ -32,15 +26,6 @@
 		<Target Name="PixiCommon:Make">
 			<MSBuild Projects="PixiPackages\PixiCommon.dproj" Targets="Make"/>
 		</Target>
-		<Target Name="PixiPluginServer">
-			<MSBuild Projects="PixiPackages\PixiPluginServer.dproj"/>
-		</Target>
-		<Target Name="PixiPluginServer:Clean">
-			<MSBuild Projects="PixiPackages\PixiPluginServer.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="PixiPluginServer:Make">
-			<MSBuild Projects="PixiPackages\PixiPluginServer.dproj" Targets="Make"/>
-		</Target>
 		<Target Name="PixiMasterServer">
 			<MSBuild Projects="PixiMasterServer\PixiMasterServer.dproj"/>
 		</Target>
@@ -50,23 +35,14 @@
 		<Target Name="PixiMasterServer:Make">
 			<MSBuild Projects="PixiMasterServer\PixiMasterServer.dproj" Targets="Make"/>
 		</Target>
-		<Target Name="PixiPluginClient">
-			<MSBuild Projects="PixiPackages\PixiPluginClient.dproj"/>
-		</Target>
-		<Target Name="PixiPluginClient:Clean">
-			<MSBuild Projects="PixiPackages\PixiPluginClient.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="PixiPluginClient:Make">
-			<MSBuild Projects="PixiPackages\PixiPluginClient.dproj" Targets="Make"/>
-		</Target>
 		<Target Name="Build">
-			<CallTarget Targets="PixiCommon;PixiPluginServer;PixiMasterServer;PixiPluginClient"/>
+			<CallTarget Targets="PixiCommon;PixiMasterServer"/>
 		</Target>
 		<Target Name="Clean">
-			<CallTarget Targets="PixiCommon:Clean;PixiPluginServer:Clean;PixiMasterServer:Clean;PixiPluginClient:Clean"/>
+			<CallTarget Targets="PixiCommon:Clean;PixiMasterServer:Clean"/>
 		</Target>
 		<Target Name="Make">
-			<CallTarget Targets="PixiCommon:Make;PixiPluginServer:Make;PixiMasterServer:Make;PixiPluginClient:Make"/>
+			<CallTarget Targets="PixiCommon:Make;PixiMasterServer:Make"/>
 		</Target>
 		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
 	</Project>

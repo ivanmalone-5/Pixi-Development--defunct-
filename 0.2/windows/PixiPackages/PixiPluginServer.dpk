@@ -35,7 +35,4 @@ requires
   IndySystem,
   IndyProtocols;
 
-contains
-  udmPixiPluginServer in 'udmPixiPluginServer.pas' {dmPixiPluginServer: TDataModule};
-
 end.

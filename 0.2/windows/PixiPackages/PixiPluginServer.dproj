@@ -74,11 +74,6 @@
 			<DCCReference Include="IndyCore.dcp"/>
 			<DCCReference Include="IndySystem.dcp"/>
 			<DCCReference Include="IndyProtocols.dcp"/>
-			<DCCReference Include="udmPixiPluginServer.pas">
-				<Form>dmPixiPluginServer</Form>
-				<FormType>dfm</FormType>
-				<DesignClass>TDataModule</DesignClass>
-			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
