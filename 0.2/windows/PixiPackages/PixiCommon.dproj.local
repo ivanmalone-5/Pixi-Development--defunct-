@@ -9,5 +9,17 @@
     <Transaction>2011/12/03 04:52:25.000.587,=vcl.dcp</Transaction>
     <Transaction>2011/12/04 06:39:36.000.140,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
     <Transaction>2011/12/04 06:47:16.000.427,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/12/05 15:19:49.000.939,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\uFindFile.pas</Transaction>
+    <Transaction>2011/12/05 15:20:07.000.673,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udlgFileFind.pas</Transaction>
+    <Transaction>2011/12/05 15:20:11.000.905,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udlgFileFind.pas=</Transaction>
+    <Transaction>2011/12/05 15:20:51.000.544,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udlgFileFind.pas</Transaction>
+    <Transaction>2011/12/05 15:31:07.000.915,=vclx.dcp</Transaction>
+    <Transaction>2011/12/05 15:31:07.000.924,=vclactnband.dcp</Transaction>
+    <Transaction>2011/12/05 15:31:07.000.933,=vclribbon.dcp</Transaction>
+    <Transaction>2011/12/05 15:37:02.000.730,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
+    <Transaction>2011/12/05 15:37:15.000.813,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.dfm=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraListView.dfm</Transaction>
+    <Transaction>2011/12/05 15:37:15.000.813,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraListView.pas</Transaction>
+    <Transaction>2011/12/05 15:41:22.000.799,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.pas</Transaction>
+    <Transaction>2011/12/07 21:35:07.861,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraListView.pas=</Transaction>
   </Transactions>
 </BorlandProject>

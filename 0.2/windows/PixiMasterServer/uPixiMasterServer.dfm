@@ -27,19 +27,31 @@ object frmMain: TfrmMain
     QuickAccessToolbar.ActionBar = RibbonQuickAccessToolbar1
     Tabs = <
       item
-        Caption = 'Debug'
+        Caption = 'Main'
         Page = RibbonPage5
       end>
     DesignSize = (
       835
       143)
     StyleName = 'Ribbon - Luna'
+    object RibbonApplicationMenuBar1: TRibbonApplicationMenuBar
+      ActionManager = ActionManager
+      OptionItems = <>
+      RecentItems = <>
+    end
+    object RibbonQuickAccessToolbar1: TRibbonQuickAccessToolbar
+      Left = 49
+      Top = 1
+      Width = 48
+      Height = 24
+      ActionManager = ActionManager
+    end
     object RibbonPage5: TRibbonPage
       Left = 0
       Top = 50
       Width = 834
       Height = 93
-      Caption = 'Debug'
+      Caption = 'Main'
       Index = 0
       object RibbonGroup1: TRibbonGroup
         Left = 4
@@ -64,24 +76,12 @@ object frmMain: TfrmMain
       object RibbonGroup4: TRibbonGroup
         Left = 301
         Top = 3
-        Width = 129
+        Width = 55
         Height = 86
         ActionManager = ActionManager
         Caption = 'View'
         GroupIndex = 3
       end
-    end
-    object RibbonApplicationMenuBar1: TRibbonApplicationMenuBar
-      ActionManager = ActionManager
-      OptionItems = <>
-      RecentItems = <>
-    end
-    object RibbonQuickAccessToolbar1: TRibbonQuickAccessToolbar
-      Left = 49
-      Top = 1
-      Width = 48
-      Height = 24
-      ActionManager = ActionManager
     end
   end
   inline fraPixiPluginServer: TfraPixiPluginServer
@@ -100,15 +100,21 @@ object frmMain: TfrmMain
       ExplicitTop = 326
       ExplicitWidth = 835
     end
-    inherited ListView: TListView
+    inherited TreeView: TTreeView
+      Height = 326
+      ExplicitHeight = 326
+    end
+    inherited fraListView: TfraListView
       Width = 666
       Height = 326
       ExplicitWidth = 666
       ExplicitHeight = 326
-    end
-    inherited TreeView: TTreeView
-      Height = 326
-      ExplicitHeight = 326
+      inherited ListView: TListView
+        Width = 666
+        Height = 326
+        ExplicitWidth = 666
+        ExplicitHeight = 326
+      end
     end
     inherited ActionList: TActionList
       inherited actRefreshListView: TAction
@@ -138,7 +144,7 @@ object frmMain: TfrmMain
     end
     inherited ActionListImages: TImageList
       Bitmap = {
-        494C010101000800300010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+        494C010101000800440010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
         0000000000003600000028000000400000001000000001002000000000000010
         00000000000000000000000000000000000000000000000000009C441C000000
         0000000000000000000000000000000000000000000000000000000000000000
@@ -336,33 +342,6 @@ object frmMain: TfrmMain
         Items = <
           item
             Action = fraPixiPluginServer.actRefreshListView
-          end
-          item
-            Action = fraPixiPluginServer.actListviewGroups
-            Caption = '&Groups'
-            CommandStyle = csCheckBox
-            CommandProperties.Width = -1
-          end
-          item
-            Action = fraPixiPluginServer.actListviewReport
-            CommandStyle = csRadioButton
-            CommandProperties.Width = -1
-          end
-          item
-            Action = fraPixiPluginServer.actListViewList
-            CommandStyle = csRadioButton
-            CommandProperties.Width = -1
-          end
-          item
-            Action = fraPixiPluginServer.actListViewSmall
-            CommandStyle = csRadioButton
-            CommandProperties.Width = -1
-          end
-          item
-            Action = fraPixiPluginServer.actListViewIcon
-            Caption = '&Icon'
-            CommandStyle = csRadioButton
-            CommandProperties.Width = -1
           end>
         ActionBar = RibbonGroup4
       end
@@ -477,26 +456,6 @@ object frmMain: TfrmMain
       item
         Action = fraPixiPluginServer.actPluginRemove
         Header = 'Remove'
-      end
-      item
-        Action = fraPixiPluginServer.actListviewReport
-        Header = 'Detailed'
-      end
-      item
-        Action = fraPixiPluginServer.actListViewList
-        Header = 'List'
-      end
-      item
-        Action = fraPixiPluginServer.actListViewSmall
-        Header = 'Small'
-      end
-      item
-        Action = fraPixiPluginServer.actListViewIcon
-        Header = 'Icon'
-      end
-      item
-        Action = fraPixiPluginServer.actListviewGroups
-        Header = 'Groups'
       end>
     Left = 512
     Top = 448

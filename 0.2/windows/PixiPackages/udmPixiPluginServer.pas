@@ -8,6 +8,7 @@ uses
 type
   TdmPixiPluginServer = class(TDataModule)
     PluginManager: TPluginManager;
+    PixiPluginServer: TPixiPluginServer;
   private
     { Private declarations }
   public
