@@ -1,0 +1,21 @@
+unit uPixiPluginClient;
+
+interface
+
+
+FUNCTION IsValidPlugin() : boolean; stdcall; export;
+
+implementation
+
+FUNCTION IsValidPlugin() : boolean; stdcall; export;
+Begin
+ShowMessage('True');
+  Result := True;
+End;
+
+
+
+
+exports IsValidPlugin;
+
+end.

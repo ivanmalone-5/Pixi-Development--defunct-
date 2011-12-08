@@ -1,0 +1,39 @@
+unit uPixiPluginClient;
+
+interface
+
+Type TFunc_SimpleBool           =     FUNCTION() : boolean; stdcall;
+Type TFunc_SimpleStr            =     FUNCTION() : string; stdcall;
+Type TFunc_SimpleInt            =     FUNCTION() : integer; stdcall;
+
+
+
+Type TPluginClientInterface     =       record
+            DoInit              :       TFunc_SimpleBool;
+            DoDeInit            :       TFunc_SimpleBool;
+            IsValidPlugin       :       TFunc_SimpleBool;
+end;
+
+
+FUNCTION IsValidPlugin() : boolean; stdcall; export;
+
+implementation
+
+FUNCTION IsValidPlugin() : boolean; stdcall; export;
+Begin
+  Result := false;
+End;
+
+FUNCTION DoInit() : boolean; stdcall; export;
+Begin
+
+End;
+
+FUNCTION DoDeInit() : boolean; stdcall; export;
+
+
+
+
+exports IsValidPlugin;
+
+end.
