@@ -17,42 +17,6 @@ object fraPixiPluginServer: TfraPixiPluginServer
         Width = 150
       end>
   end
-  object ListView: TListView
-    Left = 169
-    Top = 0
-    Width = 714
-    Height = 538
-    Align = alClient
-    Columns = <
-      item
-        AutoSize = True
-        Caption = 'Filename'
-      end
-      item
-        AutoSize = True
-        Caption = 'Path'
-      end
-      item
-        AutoSize = True
-        Caption = 'Loaded'
-      end
-      item
-        AutoSize = True
-        Caption = 'Valid'
-      end
-      item
-        AutoSize = True
-        Caption = 'Handle'
-      end>
-    GroupView = True
-    ReadOnly = True
-    RowSelect = True
-    PopupMenu = ListViewMenu
-    TabOrder = 1
-    ViewStyle = vsReport
-    OnChange = ListViewChange
-    OnClick = ListViewClick
-  end
   object TreeView: TTreeView
     Left = 0
     Top = 0
@@ -62,7 +26,7 @@ object fraPixiPluginServer: TfraPixiPluginServer
     Indent = 19
     ReadOnly = True
     RowSelect = True
-    TabOrder = 2
+    TabOrder = 1
     Items.NodeData = {
       0302000000260000000000000000000000FFFFFFFFFFFFFFFF00000000000000
       0002000000010450006900780069003A0000000000000000000000FFFFFFFFFF
@@ -126,9 +90,46 @@ object fraPixiPluginServer: TfraPixiPluginServer
       006C006C002C0000000000000000000000FFFFFFFFFFFFFFFF00000000000000
       000000000001074D0061006C007700610072006500}
   end
+  object ListView: TListView
+    Left = 169
+    Top = 0
+    Width = 714
+    Height = 538
+    Align = alClient
+    Columns = <
+      item
+        AutoSize = True
+        Caption = 'Filename'
+      end
+      item
+        AutoSize = True
+        Caption = 'Path'
+      end
+      item
+        AutoSize = True
+        Caption = 'Loaded'
+      end
+      item
+        AutoSize = True
+        Caption = 'Valid'
+      end
+      item
+        AutoSize = True
+        Caption = 'Handle'
+      end>
+    GroupView = True
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 2
+    ViewStyle = vsReport
+    ExplicitLeft = 8
+    ExplicitTop = 8
+    ExplicitWidth = 563
+    ExplicitHeight = 301
+  end
   object ActionList: TActionList
     Images = ActionListImages
-    Left = 24
+    Left = 32
     Top = 80
     object actRefreshListView: TAction
       Category = 'PluginManager'
@@ -190,14 +191,18 @@ object fraPixiPluginServer: TfraPixiPluginServer
       Caption = '&Remove'
       OnExecute = actPluginRemoveExecute
     end
-    object actListviewReport: TAction
+    object actPluginAddPath: TAction
+      Category = 'PluginManager'
+      Caption = 'Add &Path'
+    end
+    object actListViewDetailed: TAction
       Category = 'ListView'
       Caption = '&Detailed'
       Checked = True
       GroupIndex = 1
       OnExecute = actListviewReportExecute
     end
-    object actListViewList: TAction
+    object actListviewList: TAction
       Category = 'ListView'
       Caption = '&List'
       GroupIndex = 1
@@ -215,16 +220,12 @@ object fraPixiPluginServer: TfraPixiPluginServer
       GroupIndex = 1
       OnExecute = actListViewIconExecute
     end
-    object actListviewGroups: TAction
+    object actListViewGroups: TAction
       Category = 'ListView'
       Caption = 'Groups'
       Checked = True
       GroupIndex = 2
       OnExecute = actListviewGroupsExecute
-    end
-    object actPluginAddPath: TAction
-      Category = 'PluginManager'
-      Caption = 'Add &Path'
     end
   end
   object OpenDialog: TOpenDialog
@@ -232,12 +233,12 @@ object fraPixiPluginServer: TfraPixiPluginServer
     Filter = 'DLL Files|*.dll|All Files|*.*'
     Options = [ofAllowMultiSelect, ofExtensionDifferent, ofPathMustExist, ofFileMustExist, ofEnableSizing]
     Left = 96
-    Top = 136
+    Top = 192
   end
   object ListViewMenu: TPopupMenu
     Images = ActionListImages
-    Left = 24
-    Top = 136
+    Left = 32
+    Top = 200
     object Plugins1: TMenuItem
       Caption = '&Plugins'
       object AddPlugins1: TMenuItem
@@ -274,22 +275,29 @@ object fraPixiPluginServer: TfraPixiPluginServer
     object View1: TMenuItem
       Caption = '&View'
       object Detailed1: TMenuItem
-        Action = actListviewReport
+        Caption = '&Detailed'
+        Checked = True
+        OnClick = actListviewReportExecute
       end
       object List1: TMenuItem
-        Action = actListViewList
+        Caption = '&List'
+        OnClick = actListViewListExecute
       end
       object List2: TMenuItem
-        Action = actListViewIcon
+        Caption = 'Icon'
+        OnClick = actListViewIconExecute
       end
       object Small1: TMenuItem
-        Action = actListViewSmall
+        Caption = '&Small'
+        OnClick = actListViewSmallExecute
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Groups1: TMenuItem
-        Action = actListviewGroups
+        Caption = 'Groups'
+        Checked = True
+        OnClick = actListviewGroupsExecute
       end
       object N6: TMenuItem
         Caption = '-'
@@ -324,10 +332,10 @@ object fraPixiPluginServer: TfraPixiPluginServer
     end
   end
   object ActionListImages: TImageList
-    Left = 96
-    Top = 80
+    Left = 216
+    Top = 40
     Bitmap = {
-      494C010101000800240010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101010008004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000000000009C441C000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -465,5 +473,9 @@ object fraPixiPluginServer: TfraPixiPluginServer
       C08F00000000000081C700000000000003C7000000000000FFE3000000000000
       FFF1000000000000FFF900000000000000000000000000000000000000000000
       000000000000}
+  end
+  object ActionListListView: TActionList
+    Left = 32
+    Top = 144
   end
 end

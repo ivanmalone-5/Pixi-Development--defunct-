@@ -29,11 +29,18 @@ package PixiCommon;
 
 requires
   rtl,
-  vcl;
+  vcl,
+  vclx,
+  vclactnband,
+  vclribbon;
 
 contains
   uDLLManager in 'uDLLManager.pas',
   uMiscFuncs in 'uMiscFuncs.pas',
-  uPluginManager in 'uPluginManager.pas';
+  uPluginManager in 'uPluginManager.pas',
+  ufraPixiPluginServer in 'ufraPixiPluginServer.pas' {fraPixiPluginServer: TFrame},
+  uFindFile in 'uFindFile.pas',
+  udlgFileFind in 'udlgFileFind.pas' {dlgSearchFiles},
+  ufraListView in 'ufraListView.pas' {fraListView: TFrame};
 
 end.

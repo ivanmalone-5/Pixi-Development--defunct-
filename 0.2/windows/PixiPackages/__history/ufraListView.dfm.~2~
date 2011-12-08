@@ -1,0 +1,44 @@
+object fraListView: TfraListView
+  Left = 0
+  Top = 0
+  Width = 320
+  Height = 240
+  TabOrder = 0
+  object ListView: TListView
+    Left = 0
+    Top = 0
+    Width = 320
+    Height = 240
+    Align = alClient
+    Columns = <
+      item
+        AutoSize = True
+        Caption = 'Filename'
+      end
+      item
+        AutoSize = True
+        Caption = 'Path'
+      end
+      item
+        AutoSize = True
+        Caption = 'Loaded'
+      end
+      item
+        AutoSize = True
+        Caption = 'Valid'
+      end
+      item
+        AutoSize = True
+        Caption = 'Handle'
+      end>
+    GroupView = True
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 0
+    ViewStyle = vsReport
+    ExplicitLeft = -394
+    ExplicitTop = -298
+    ExplicitWidth = 714
+    ExplicitHeight = 538
+  end
+end

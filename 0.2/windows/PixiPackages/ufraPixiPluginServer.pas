@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ComCtrls, Vcl.ActnList,
-  Vcl.Menus, Vcl.ExtCtrls, udmPixiPluginServer, Vcl.ToolWin, Vcl.ImgList;
+  Vcl.Menus, Vcl.ExtCtrls, udmPixiPluginServer, Vcl.ToolWin, Vcl.ImgList,
+  ufraListView;
 
 type
   TfraPixiPluginServer = class(TFrame)
@@ -18,7 +19,6 @@ type
     N1: TMenuItem;
     Refresh1: TMenuItem;
     StatusBar: TStatusBar;
-    ListView: TListView;
     actPluginFirst: TAction;
     actPluginLast: TAction;
     actPluginBack: TAction;
@@ -44,11 +44,6 @@ type
     N5: TMenuItem;
     Remove1: TMenuItem;
     Clear1: TMenuItem;
-    actListviewReport: TAction;
-    actListViewList: TAction;
-    actListViewSmall: TAction;
-    actListViewIcon: TAction;
-    actListviewGroups: TAction;
     ActionListImages: TImageList;
     actPluginAddPath: TAction;
     AddPath1: TMenuItem;
@@ -62,6 +57,13 @@ type
     Groups1: TMenuItem;
     N7: TMenuItem;
     TreeView: TTreeView;
+    ListView: TListView;
+    ActionListListView: TActionList;
+    actListViewDetailed: TAction;
+    actListviewList: TAction;
+    actListViewSmall: TAction;
+    actListViewIcon: TAction;
+    actListViewGroups: TAction;
     procedure actRefreshListViewExecute(Sender: TObject);
     procedure actAddPluginsExecute(Sender: TObject);
     procedure actPluginLoadAllExecute(Sender: TObject);
@@ -178,7 +180,7 @@ end;
 procedure TfraPixiPluginServer.actListviewReportExecute(Sender: TObject);
 begin
 ListView.ViewStyle := vsReport;
-actListViewReport.Checked := True;
+actListViewDetailed.Checked := True;
 end;
 
 procedure TfraPixiPluginServer.actListViewSmallExecute(Sender: TObject);

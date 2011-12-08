@@ -18,7 +18,6 @@ type
     fraPixiPluginServer: TfraPixiPluginServer;
     ActionManager: TActionManager;
     RibbonGroup2: TRibbonGroup;
-    RibbonGroup4: TRibbonGroup;
     ScreenTipsManager: TScreenTipsManager;
     ActionManagerImages: TImageList;
     ActionManagerDisabled: TImageList;
@@ -28,6 +27,7 @@ type
     RibbonQuickAccessToolbar1: TRibbonQuickAccessToolbar;
     TrayIcon: TTrayIcon;
     TrayIconImages: TImageList;
+    RibbonGroup4: TRibbonGroup;
     procedure fraPixiPluginServeractPluginLoadAllExecute(Sender: TObject);
     procedure fraPixiPluginServeractRefreshListViewExecute(Sender: TObject);
     procedure fraPixiPluginServeractPluginFirstExecute(Sender: TObject);

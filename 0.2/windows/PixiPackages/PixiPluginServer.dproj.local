@@ -4,16 +4,24 @@
     <Transaction>2011/12/03 04:46:04.000.527,=rtl.dcp</Transaction>
     <Transaction>2011/12/03 04:48:18.000.474,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\PixiPluginServer.dproj=C:\Users\morbidchimp\Documents\RAD Studio\Projects\Package2.dproj</Transaction>
     <Transaction>2011/12/03 04:59:01.000.090,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/12/03 04:59:44.000.066,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas</Transaction>
     <Transaction>2011/12/03 04:59:44.000.066,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.dfm=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.dfm</Transaction>
+    <Transaction>2011/12/03 04:59:44.000.066,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas</Transaction>
     <Transaction>2011/12/03 05:01:07.000.451,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas</Transaction>
-    <Transaction>2011/12/03 05:01:25.000.859,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.pas</Transaction>
     <Transaction>2011/12/03 05:01:25.000.859,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.dfm=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.dfm</Transaction>
+    <Transaction>2011/12/03 05:01:25.000.859,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\Unit1.pas=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.pas</Transaction>
     <Transaction>2011/12/03 05:12:19.000.798,=vcl.dcp</Transaction>
     <Transaction>2011/12/03 05:37:01.000.642,=PixiCommon.dcp</Transaction>
     <Transaction>2011/12/03 18:03:13.000.479,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\ufraPixiPluginServer.pas=</Transaction>
+    <Transaction>2011/12/04 07:14:35.000.631,=IndyCore.dcp</Transaction>
     <Transaction>2011/12/04 07:14:35.000.647,=IndyProtocols.dcp</Transaction>
     <Transaction>2011/12/04 07:14:35.000.638,=IndySystem.dcp</Transaction>
-    <Transaction>2011/12/04 07:14:35.000.631,=IndyCore.dcp</Transaction>
+    <Transaction>2011/12/07 21:35:29.000.118,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas=</Transaction>
+    <Transaction>2011/12/07 21:35:56.000.880,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas=</Transaction>
+    <Transaction>2011/12/07 21:58:29.381,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udlgFileFind.pas</Transaction>
+    <Transaction>2011/12/07 21:58:44.403,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\uFindFile.pas</Transaction>
+    <Transaction>2011/12/07 21:58:52.276,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udlgFileFind.pas=</Transaction>
+    <Transaction>2011/12/07 21:58:57.684,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\uFindFile.pas=</Transaction>
+    <Transaction>2011/12/07 22:00:24.474,=C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas</Transaction>
+    <Transaction>2011/12/07 22:02:31.560,C:\Users\morbidchimp\Ubuntu One\projects\PixiDev\0.2\windows\PixiPackages\udmPixiPluginServer.pas=</Transaction>
   </Transactions>
 </BorlandProject>
